@@ -1,0 +1,36 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Custom CSS Variables for Tailwind v4 */
+@theme {
+  /* Custom Colors */
+  --color-dark-orange: #703102;
+  --color-light-orange: #AE5D01; 
+  --color-very-light-orange: #FCE289; 
+  --color-dark-green: #002A01; 
+  --color-light-green: #499E47; 
+
+  --font-family-inter: "Inter", "Helvetica Neue", "Arial", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", "Helvetica Neue", "Arial", sans-serif !important;
+}
+
+* {
+  font-family: "Inter", "Helvetica Neue", "Arial", sans-serif;
+}
+
+body {
+  font-family: "Inter", "Helvetica Neue", "Arial", sans-serif;
+}
+
+/* Utility Classes */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
