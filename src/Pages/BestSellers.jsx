@@ -92,7 +92,7 @@ const BestSellers = () => {
     <div 
       className="py-16 px-4 sm:px-6 lg:px-8 relative min-h-screen"
       style={{
-        backgroundImage: `url("./src/assets/backgroundLines.png")`,
+        backgroundImage: `url("/backgroundLines.png")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -151,7 +151,7 @@ const BestSellers = () => {
                 
                </div>
 
-               <img src='./src/assets/image.png'></img>
+               <img src='/image.png'></img>
               </div>
 
               {/* Enhanced Product Info */}

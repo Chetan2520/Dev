@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* Logo */}
           
           <div>
-          <img src='./src/assets/Frame 42.png' alt='logo' className=' h-24 w-64' />
+          <img src='/Frame 42.png' alt='logo' className=' h-24 w-64' />
           </div>
 
           {/* Desktop Navigation Links */}

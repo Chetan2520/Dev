@@ -44,7 +44,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-700"
         style={{
-          backgroundImage: `url("./src/assets/hero.png")`
+          backgroundImage: `url("/Hero.png")`
         }}
       />
       
