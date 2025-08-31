@@ -4,16 +4,19 @@ import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin, ExternalLin
 const Footer = () => {
   const [mapExpanded, setMapExpanded] = useState(false);
 
+  // Google Maps embed URL for the location
+  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.9470405717895!2d72.8310607!3d19.0176147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce9c0b5b7f8b%3A0x8f9f6b9b9b9b9b9b!2s123%20Oil%20Mill%20Street%2C%20Mumbai%2C%20Maharashtra%20400001%2C%20India!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin";
+  
+  const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=19.0176147,72.8310607&zoom=15&size=300x150&maptype=roadmap&markers=color:red%7Clabel:D%7C19.0176147,72.8310607&key=YOUR_API_KEY`;
+
   return (
-    <footer className="bg-amber-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className="bg-amber-900 text-white px-12">
+      <div className="  px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company Info */}
-          <div className="lg:col-span-1 px-4">
+          <div className="lg:col-span-1 w-[102%] px-4">
             <div className="flex items-center mb-6">
-              <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center mr-4">
-                <div className="w-5 h-5 bg-white rounded-full"></div>
-              </div>
+              <img src='/FooterLogo.png' className='w-20 h-20'></img>
               <div>
                 <h3 className="font-bold text-xl">Dev Natural Oils</h3>
                 <p className="text-amber-200 text-sm">Pure • Natural • Premium</p>
@@ -24,17 +27,17 @@ const Footer = () => {
             </p>
             {/* Social Media Icons */}
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-colors duration-200">
-                <Facebook className="w-5 h-5" />
+              <a href="#" className="w-10 h-10 ">
+                <Facebook className="w-7 h-7 text-light-orange" />
               </a>
-              <a href="#" className="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-colors duration-200">
-                <Twitter className="w-5 h-5" />
+              <a href="#" className="w-10 h-10 ">
+                <Twitter className="w-7 h-7 text-light-orange" />
               </a>
-              <a href="#" className="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-colors duration-200">
-                <Instagram className="w-5 h-5" />
+              <a href="#" className="w-10 h-10 ">
+                <Instagram className="w-7 h-7 text-light-orange" />
               </a>
-              <a href="#" className="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-colors duration-200">
-                <Youtube className="w-5 h-5" />
+              <a href="#" className="w-10 h-10 ">
+                <Youtube className="w-7 h-7 text-light-orange"  />
               </a>
             </div>
           </div>
@@ -76,104 +79,92 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info with Enhanced Map */}
+          {/* Contact Info with Real Google Map */}
           <div className="px-4">
             <h4 className="font-semibold text-lg mb-6">Contact Info</h4>
             <div className="space-y-6">
               {/* Phone */}
               <div className="flex items-start space-x-4">
-                <Phone className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-light-orange mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-amber-100 text-sm font-medium">+91 9876543210</p>
-                  <p className="text-amber-200 text-xs mt-1">Mon-Sat, 9am-7pm</p>
+                  <p className=" text-xs mt-1">Mon-Sat, 9am-7pm</p>
                 </div>
               </div>
 
               {/* Email */}
               <div className="flex items-start space-x-4">
-                <Mail className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-light-orange mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-amber-100 text-sm">info@devnaturaloils.com</p>
-                  <p className="text-amber-200 text-xs mt-1">We reply within 24hrs</p>
+                  <p className=" text-xs mt-1">We reply within 24hrs</p>
                 </div>
               </div>
 
               {/* Address */}
               <div className="flex items-start space-x-4">
-                <MapPin className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-light-orange mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-amber-100 text-sm">123 Oil Mill Street</p>
-                  <p className="text-amber-100 text-sm">Mumbai, Maharashtra 400001</p>
+                  <p className=" text-sm">Mumbai, Maharashtra 400001</p>
                 </div>
               </div>
 
-              {/* Interactive Map */}
+              {/* Interactive Google Map */}
               <div className="mt-6">
-                <div className="bg-amber-800 rounded-lg p-4">
+                <div className=" rounded-lg p-4">
                   {!mapExpanded ? (
                     <div className="text-center">
-                      <div className="bg-white rounded-md h-24 flex items-center justify-center mb-3 relative overflow-hidden">
-                        {/* Simple map preview */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-blue-100"></div>
-                        <div className="relative z-10 text-center">
-                          <MapPin className="w-8 h-8 mx-auto mb-1 text-red-500" />
-                          <div className="text-gray-700 text-xs">
-                            <div className="font-semibold">Dev Natural Oils</div>
-                            <div>Oil Mill Street, Mumbai</div>
+                      {/* Small map preview using Google Maps embed */}
+                      <div className="rounded-md h-24 overflow-hidden mb-3 relative">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15086.757!2d72.8260748!3d19.0176147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce5d8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1693483200000!5m2!1sen!2sin&zoom=14"
+                          width="100%"
+                          height="100%"
+                          
+                          allowFullScreen=""
+                          loading="lazy"
+                          
+                        ></iframe>
+                        {/* Overlay with company info */}
+                        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center pointer-events-none">
+                          <div className="text-center text-white">
+                            <MapPin className="w-6 h-6 mx-auto mb-1 text-red-400" />
+                            <div className="text-xs font-semibold">Dev Natural Oils</div>
+                            <div className="text-xs opacity-90">Oil Mill Street, Mumbai</div>
                           </div>
                         </div>
-                        {/* Decorative roads */}
-                        <div className="absolute top-0 left-1/4 w-px h-full bg-gray-300 opacity-50"></div>
-                        <div className="absolute top-1/3 left-0 w-full h-px bg-gray-300 opacity-50"></div>
                       </div>
-                      <button 
+                      {/* <button 
                         onClick={() => setMapExpanded(true)}
                         className="text-amber-200 text-sm hover:text-white transition-colors duration-200 flex items-center justify-center gap-2"
                       >
                         View larger map <ExternalLink className="w-3 h-3" />
-                      </button>
+                      </button> */}
                     </div>
                   ) : (
                     <div className="text-center">
-                      <div className="bg-white rounded-md h-48 flex items-center justify-center mb-3 relative overflow-hidden">
-                        {/* Enhanced map view */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-blue-50 to-green-50"></div>
-                        
-                        {/* Grid pattern for map feel */}
-                        <div className="absolute inset-0 opacity-20">
-                          {[...Array(8)].map((_, i) => (
-                            <div key={i} className="absolute top-0 w-px h-full bg-gray-400" style={{left: `${i * 12.5}%`}}></div>
-                          ))}
-                          {[...Array(6)].map((_, i) => (
-                            <div key={i} className="absolute left-0 w-full h-px bg-gray-400" style={{top: `${i * 16.67}%`}}></div>
-                          ))}
-                        </div>
-                        
-                        {/* Roads */}
-                        <div className="absolute top-1/4 left-0 w-full h-1 bg-gray-400 opacity-60"></div>
-                        <div className="absolute top-0 left-1/3 w-1 h-full bg-gray-400 opacity-60"></div>
-                        <div className="absolute top-2/3 left-1/4 w-3/4 h-0.5 bg-gray-400 opacity-40"></div>
-                        
-                        {/* Buildings */}
-                        <div className="absolute top-1/6 left-1/6 w-4 h-6 bg-gray-500 opacity-40"></div>
-                        <div className="absolute top-1/5 right-1/4 w-3 h-4 bg-gray-500 opacity-40"></div>
-                        <div className="absolute bottom-1/4 left-3/4 w-5 h-5 bg-gray-500 opacity-40"></div>
-                        
-                        {/* Main location marker */}
-                        <div className="relative z-20 text-center">
+                      {/* Full-size interactive Google Map */}
+                      <div className="rounded-md h-48 overflow-hidden mb-3 relative">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.9470405717895!2d72.8288660!3d19.0176147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce5d8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1693483200000!5m2!1sen!2sin"
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen=""
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          title="Dev Natural Oils Location"
+                        ></iframe>
+                        {/* Custom marker overlay */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-full pointer-events-none">
                           <div className="animate-bounce">
-                            <MapPin className="w-10 h-10 mx-auto mb-2 text-red-500 drop-shadow-lg" />
+                            <MapPin className="w-8 h-8 text-red-500 drop-shadow-lg" />
                           </div>
-                          <div className="bg-white bg-opacity-90 rounded-md px-3 py-2 text-gray-700 text-xs shadow-lg">
-                            <div className="font-bold">Dev Natural Oils</div>
-                            <div>123 Oil Mill Street</div>
-                            <div>Mumbai, Maharashtra</div>
+                          <div className="bg-white bg-opacity-95 rounded-md px-3 py-2 text-gray-700 text-xs shadow-lg mt-1 min-w-max">
+                            <div className="font-bold text-center">Dev Natural Oils</div>
+                            <div className="text-center">123 Oil Mill Street</div>
                           </div>
-                        </div>
-                        
-                        {/* Nearby landmarks */}
-                        <div className="absolute top-1/3 right-1/5 text-xs text-gray-600 bg-white bg-opacity-80 rounded px-2 py-1">
-                          Shaheed Sukhdev College
                         </div>
                       </div>
                       

@@ -41,10 +41,10 @@ const FAQSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-semibold text-amber-600 mb-4">
+          <h2 className="text-5xl font-semibold text-light-orange mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-2xl">
             Everything you need to know about our premium oils and services
           </p>
         </div>
@@ -54,7 +54,7 @@ const FAQSection = () => {
           {faqs.map((faq) => (
             <div 
               key={faq.id}
-              className="bg-white rounded-lg border border-amber-200 shadow-sm overflow-hidden"
+              className="bg-white rounded-lg border border-light-orange shadow-sm overflow-hidden"
             >
               <button
                 onClick={() => toggleQuestion(faq.id)}
@@ -64,7 +64,7 @@ const FAQSection = () => {
                   {faq.question}
                 </span>
                 <ChevronDown 
-                  className={`w-5 h-5 text-amber-600 transition-transform duration-200 flex-shrink-0 ${
+                  className={`w-5 h-5 text-light-orange transition-transform duration-200 flex-shrink-0 ${
                     openQuestion === faq.id ? 'rotate-180' : ''
                   }`}
                 />
@@ -85,7 +85,7 @@ const FAQSection = () => {
 
         {/* View All FAQs Button */}
         <div className="text-center">
-          <button className="bg-white border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md">
+          <button className="bg-white text-light-orange border-2 border-light-orange hover:text-white px-8 py-3 rounded-lg font-bold transition-all duration-200 shadow-sm hover:shadow-md">
             View All FAQs
           </button>
         </div>

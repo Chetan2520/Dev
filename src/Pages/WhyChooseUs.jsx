@@ -1,11 +1,13 @@
 import React from 'react';
 import { Droplets, Award, Truck, Users, Sun, Heart } from 'lucide-react';
+import { BiLeaf } from 'react-icons/bi';
+import { LuShield } from 'react-icons/lu';
 
 const WhyChooseUs = () => {
   const features = [
     {
       id: 1,
-      icon: <Droplets className="w-8 h-8 text-orange-500" />,
+      icon: <BiLeaf  className="w-8 h-8 text-orange-500" />,
       title: '100% Pure & Natural',
       description: 'No chemicals, no additives - just pure natural oils extracted using traditional methods.'
     },
@@ -17,7 +19,7 @@ const WhyChooseUs = () => {
     },
     {
       id: 3,
-      icon: <Users className="w-8 h-8 text-orange-500" />,
+      icon: <LuShield className="w-8 h-8 text-orange-500" />,
       title: 'Quality Assured',
       description: 'Every batch is tested for purity and quality to ensure you get the best products.'
     },
@@ -29,7 +31,7 @@ const WhyChooseUs = () => {
     },
     {
       id: 5,
-      icon: <Sun className="w-8 h-8 text-orange-500" />,
+      icon: <Users className="w-8 h-8 text-orange-500" />,
       title: 'Trusted by Thousands',
       description: 'Join thousands of satisfied customers who trust us for their daily cooking oil needs.'
     },
