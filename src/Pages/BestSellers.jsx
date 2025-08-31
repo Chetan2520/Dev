@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Star, Heart, ShoppingCart, Zap, TrendingUp, Pipette, SeparatorVertical } from 'lucide-react';
+import { BiSolidZap } from 'react-icons/bi';
 
 const BestSellers = () => {
   const [favorites, setFavorites] = useState(new Set());
@@ -16,7 +17,7 @@ const BestSellers = () => {
       description: "Pure cold-pressed mustard oil with natural pungency and authentic...",
       image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop&auto=format",
      
-      badgeColor: "bg-amber-700",
+      
       sizes: ["500ml", "1L", "2L", "+ 2 more"]
     },
     {
@@ -50,15 +51,15 @@ const BestSellers = () => {
     {
       id: 4,
       name: "Mustard Oil",
-      rating: 4.0,
-      reviews: 4.0,
+      rating: 2.0,
+      reviews: 2.0,
       price: 120,
       originalPrice: 140,
       discount: "14% OFF",
       description: "Pure cold-pressed mustard oil with natural pungency and authentic...",
       image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop&auto=format",
      
-      badgeColor: "bg-amber-700",
+      
       sizes: ["500ml", "1L", "2L", "+ 2 more"]
     }
   ];
@@ -90,7 +91,7 @@ const BestSellers = () => {
 
   return (
     <div 
-      className="py-16 px-4 sm:px-6 lg:px-8 relative min-h-screen"
+      className="py-16 px-4 sm:px-6 lg:px-20 relative min-h-screen"
       style={{
         backgroundImage: `url("/backgroundLines.png")`,
         backgroundSize: 'cover',
@@ -101,7 +102,7 @@ const BestSellers = () => {
       {/* Light background overlay */}
       <div className=" "></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 ">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-very-light-orange text-light-orange px-5 py-1 rounded-full text-sm font-medium mb-4">
@@ -117,19 +118,19 @@ const BestSellers = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-[825px]">
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-dark-orange max-w-sm mx-auto"
+              className="bg-white rounded-3xl  hover:-2xl transition-all duration-300 overflow-hidden border-2 border-dark-orange max-w-sm mx-auto"
             >
               {/* Product Image Container */}
-              <div className="relative bg-red-50 h-80">
+              <div className="relative bg-red-50 ">
                 {/* Badge */}
                
-                <div className="absolute top-0 bg-light-orange left-35  w-full flex text-white px-4 py-1 rounded-bl-full text-xs font-bold  items-center  gap-2 shadow-lg">
+                <div className="absolute top-0 bg-light-orange right-0  flex text-white px-7 py-2 rounded-bl-full text-xs font-bold  items-center  gap-2 -lg">
                  
-                  {product.badge} 
+                  {product.name} 
                   <span className="text-white text-xs font-extralight">|</span>
 
                   <button
@@ -151,17 +152,17 @@ const BestSellers = () => {
                 
                </div>
 
-               <img src='/image.png'></img>
+               <img src='/image.png' className='w-full' ></img>
               </div>
 
               {/* Enhanced Product Info */}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <div className="px-5">
+                <h3 className="text-2xl font-bold text-gray-900 ">
                   {product.name}
                 </h3>
                 
                 {/* Rating */}
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="flex items-center">
                     {renderStars(product.rating)}
                   </div>
@@ -174,26 +175,26 @@ const BestSellers = () => {
                 </p>
 
                 {/* Price */}
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl font-bold text-gray-900">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl font-semibold text-gray-900">
                     ₹ {product.price}
                   </span>
                   <span className="text-lg text-gray-500 line-through">
                     ₹ {product.originalPrice}
                   </span>
-                  <span className="text-base text-green-600 font-bold">
+                  <span className="text-base text-gray-500 font-bold">
                     ({product.discount})
                   </span>
                 </div>
 
                 {/* Available Sizes */}
-                <div className="mb-8">
-                  <p className="text-base text-gray-800 font-semibold mb-4">Available sizes:</p>
+                <div className="mb-4">
+                  <p className="text-base text-[#374151] font-semibold mb-3">Available sizes:</p>
                   <div className="flex items-center gap-3 flex-wrap">
                     {product.sizes.map((size, index) => (
                       <button
                         key={index}
-                        className={`px-2 py-2 text-sm rounded-sm font-semibold transition-all duration-200 ${
+                        className={`px-2 py-2 text-sm  rounded-sm  transition-all duration-200 ${
                           index === 1
                             ? 'bg-light-orange text-white shadow-lg transform scale-105'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-gray-200 hover:border-gray-300'
@@ -207,12 +208,12 @@ const BestSellers = () => {
 
                 {/* Action Buttons */}
                 <div className="space-y-4">
-                  <button className="w-full h-[59px] text-white py-4 bg-dark-orange px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                  <button className="w-full h-[59px] text-white py-4 bg-dark-orange px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 -xl hover:-2xl transform hover:-translate-y-1">
                     <ShoppingCart className="w-5 h-5" />
                     Add to Cart
                   </button>
-                  <button className="w-full text-dark-orange bg-white border-1 border-dark-orange  hover:bg-amber-50 py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl">
-                    <Zap className="w-5 h-5 "  />
+                  <button className="w-full text-dark-orange bg-white border-1 border-dark-orange  hover:bg-amber-50 py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 -lg hover:-xl">
+                    <BiSolidZap  className="w-5 h-5 "  />
                     Buy Now
                   </button>
                 </div>
