@@ -11,14 +11,17 @@ import BlogSection from './Pages/BlogSection'
 import NutritionExpertsSection from './Pages/NutritionExpertsSection'
 import FAQSection from './Pages/FAQSection'
 import Footer from './Components/Footer'
+import FooterBanner from './Pages/FooterBanner'
 
 function App() {
   return (
 <>
 <Navbar/>
-<Hero/>
+ <Hero/>
 <BestSellers/>
+
 <ProductOfDay/>
+
 <PremiumOilsStore/>
       <WhyChooseUs/>
       <CustomerTestimonials/>
@@ -27,7 +30,7 @@ function App() {
       <NutritionExpertsSection/>
       <FAQSection/>
       {/* <FooterBanner/> */}
-      <Footer/>
+      <Footer/> 
 </>
   )
 }
