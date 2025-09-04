@@ -126,7 +126,7 @@ const BestSellers = () => {
           <h2 className="lg:text-4xl text-lg  md:text-5xl font-bold  mb-4">
             Best Sellers
           </h2>
-          <p className="text-[#4B5563] text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#4B5563] text-xs lg:text-lg max-w-2xl mx-auto leading-relaxed">
             Our customers' favorite oils, loved for their exceptional quality and authentic taste
           </p>
         </div>
@@ -142,7 +142,7 @@ const BestSellers = () => {
               <div className="relative bg-red-50">
                 {/* Badge */}
                 
-                <div className="h-3.5  pr-0 lg:h-9 lg:pl-5 lg:pr-5  absolute top-0 bg-light-orange right-0 flex text-white  rounded-bl-full text-xs font-bold items-center gap-0 lg:gap-2">
+                {/* <div className="h-3.5  pr-0 lg:h-9 lg:pl-5 lg:pr-5  absolute top-0 bg-light-orange right-0 flex text-white  rounded-bl-full text-xs font-bold items-center gap-0 lg:gap-2">
                  <span className='text-[5.6px] lg:text-xs'> {product.name} </span>
                   <span className="text-white text-[5.6px] lg:text-xs font-extralight">|</span>
 
@@ -158,8 +158,24 @@ const BestSellers = () => {
                       }`}
                     />
                   </span>
-                </div>
-<div className='h-40 w-40 lg:w-[380px] lg:h-[385px]'>
+                </div> */}
+
+
+                <div className="absolute top-0 right-0 h-3 lg:h-5 w-[70px]  lg:w-44 bg-light-orange flex items-center gap-1 lg:px-4 px-1 py-[2.8px] rounded-bl-full text-white text-[5.5px] lg:text-xs font-bold">
+                {product.name} 
+  <span className="text-white text-7px lg:text-[10px] font-extralight leading-none">|</span>
+
+  <span  className='flex justify-center items-center w-3 h-3'>
+    <Heart size={14} className={`h-1.5 w-1.5 lg:w-4 lg:h-4 sm:w-5 sm:h-5 ${
+                        favorites.has(product.id)
+                          ? 'fill-red-500 text-red-500'
+                          : 'text-white'
+                      }`} />
+  </span>
+</div>
+
+
+<div className='h-[172px] w-[172px] lg:w-[380px] lg:h-[385px]'>
   
 <img src='/image.png' className='w-full h-auto object-cover' alt={product.name} />
 </div>

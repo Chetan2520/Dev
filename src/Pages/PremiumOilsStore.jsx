@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Star, Heart, ShoppingCart } from 'lucide-react';
 import { BiSolidZap } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 // MustardOilCard component - exact same design as your original
 const MustardOilCard = ({ oils, renderStars }) => {
@@ -34,28 +35,29 @@ const MustardOilCard = ({ oils, renderStars }) => {
   return (
     <div className="max-w-[1600px] mx-auto min-h-screen ">
       {/* Grid Container - 2 cards per row */}
-      <div className="grid grid-cols-1  lg:grid-cols-2 gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-20 px-4 md:px-6">
         {oils.map((oil) => (
           <div
             key={oil.id}
-            className="w-full max-w-[686px] border-2 border-dark-orange shadow-xl mx-auto flex rounded-2xl  overflow-hidden relative"
+            className="w-full max-w-[686px] border-2 border-dark-orange shadow-xl mx-auto flex  md:flex-row rounded-2xl overflow-hidden relative"
             style={{ backgroundColor: oil.backgroundColor }}
           >
-            <div className="absolute  top-0 h-[30px] bg-light-orange  right-0 flex text-white px-7 py-2 rounded-bl-full text-xs font-bold items-center gap-2 -lg">
-              Wood Pressed 
-              <span className="text-white text-xs font-extralight">|</span>
-              <button onClick={() => toggleWishlist(oil.id)}>
-                <Heart className={wishlistedItems.has(oil.id) ? 'fill-current' : ''} />
-              </button>
-            </div>
+                <div className="absolute top-0 right-0 h-3 lg:h-5 w-[70px]  lg:w-44 bg-light-orange flex items-center gap-1 lg:px-4 px-1 py-[2.8px] rounded-bl-full text-white text-[5.5px] lg:text-[9.5px] font-bold">
+  Wood Pressed
+  <span className="text-white text-7px lg:text-[10px] font-extralight leading-none">|</span>
+
+  <span  className='flex justify-center items-center w-3 h-3'>
+    <Heart size={14} className="text-white " />
+  </span>
+</div>
 
             {/* Product Image Section */}
-            <div className="pt-16 pb-6 px-4 flex-shrink-0">
-              <div className="flex justify-center w-[345px] h-full">
+            <div className="lg:pt-8 md:pt-16  w-1/2    lg:px-4 ">
+              <div className="flex justify-center w-full md:w-[345px] h-full">
                 <img 
                   src={oil.image}
                   alt={`${oil.name} Bottle`}
-                  className="w-full h-full object-cover drop-shadow-xl rounded-lg"
+                  className="w-full h-auto  object-cover drop-shadow-xl rounded-lg"
                   onError={(e) => {
                     e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='345' height='300' viewBox='0 0 345 300'%3E%3Crect width='345' height='300' fill='%23f3f4f6'/%3E%3Ctext x='172.5' y='150' text-anchor='middle' fill='%236b7280' font-size='16'%3EOil Bottle%3C/text%3E%3C/svg%3E";
                   }}
@@ -64,64 +66,64 @@ const MustardOilCard = ({ oils, renderStars }) => {
             </div>
 
             {/* Product Details Section */}
-            <div className="bg-white px-6 py-8 space-y-4 text-start flex-1">
+            <div className="bg-white w-1/2  lg:px-4 px-2 md:px-6 py-6 md:py-8 space-y-4 text-start flex-1">
               {/* Title and Rating */}
               <div>
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">{oil.name}</h2>
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="flex gap-1">
+                <h2 className=" text-[9.5px] font-[400] lg:text-2xl text-gray-800 mb-1 lg:mb-2">{oil.name}</h2>
+                <div className="flex items-center gap-2 mb-1 lg:mb-3">
+                  <div className="flex gap-1 text-[9.5px]">
                     {renderStars(oil.rating)}
                   </div>
-                  <span className="text-sm text-gray-600 font-medium">({oil.rating})</span>
+                  <span className="lg:text-sm text-[9.5px] text-gray-600 font-medium">({oil.rating})</span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="lg:text-sm text-[9.5px] text-gray-600 leading-relaxed">
                 {oil.description}
               </p>
 
               {/* Price */}
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-gray-800">₹ {oil.price}</span>
-                <span className="text-md text-gray-500 line-through">₹ {oil.originalPrice}</span>
-                <span className="text-md text-gray-500 font-medium">({oil.discount})</span>
+                <span className="lg:text-2xl text-sm font-bold text-gray-800">₹ {oil.price}</span>
+                <span className="lg:text-lg text-[9.5px] text-gray-500 line-through">₹ {oil.originalPrice}</span>
+                <span className="lg:text-lg text-[9.5px] text-gray-500 font-medium">({oil.discount})</span>
               </div>
 
               {/* Available Sizes */}
               <div>
-                <p className="text-sm font-medium text-gray-700 mb-3">Available sizes:</p>
-                <div className="flex gap-2 flex-wrap">
+                <p className="lg:text-sm text-[9.5px] font-medium text-gray-700 mb-0.5 lg:mb-3">Available sizes:</p>
+                <div className="flex gap-1 lg:gap-2 flex-wrap">
                   {sizes.map((size) => (
-                    <button
+                    <span
                       key={size.value}
                       onClick={() => !size.disabled && setSelectedSize(oil.id, size.value)}
                       disabled={size.disabled}
-                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`px-[6.58px] lg:px-3 border border-gray-400 lg:py-2 py-[2.63px] rounded-sm text-[6.5px] lg:text-sm font-medium transition-colors ${
                         (selectedSizes[oil.id] || '1L') === size.value
                           ? 'bg-light-orange text-white'
                           : size.disabled 
-                          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          ? ' text-gray-400 cursor-not-allowed'
+                          : ' text-gray-700 hover:bg-gray-200'
                       }`}
                     >
                       {size.label}
-                    </button>
+                    </span>
                   ))}
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-2">
-                <button className="w-full bg-dark-orange text-white py-3 px-4 rounded-lg font-medium hover:bg-amber-800 transition-colors duration-200 flex items-center justify-center gap-2">
+                <span className="w-full h-8 text-[10.52px] lg:text-xl bg-dark-orange text-white lg:py-3 lg:px-4 py-1 px-4 rounded-lg font-medium hover:bg-amber-800 transition-colors duration-200 flex items-center justify-center gap-2">
                   <ShoppingCart size={18} />
                   Add to Cart
-                </button>
+                </span>
                 
-                <button className="w-full border-2 text-dark-orange border-dark-orange hover:bg-amber-50 py-3 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2">
+                <Link className="w-full h-8 border-2 text-dark-orange border-dark-orange text-[10.52px] lg:text-xl   lg:py-3 lg:px-4 py-1 px-4  rounded-lg font-medium  flex items-center justify-center gap-2">
                   <BiSolidZap size={18} />
                   Buy Now
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -278,39 +280,43 @@ const PremiumOilsStore = () => {
   const sortedOils = getSortedOils();
 
   return (
-    <div className="relative min-h-screen max-w-[1600px] mx-auto mt-10">
+    <div className="relative min-h-screen px-3 lg:px-44 mt-10">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
         style={{ 
-          backgroundImage:"/image.png"
+         
+          backgroundImage: 'url(/backgroundLines.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
         }}
       ></div>
     
       {/* Content */}
       <div className="relative z-10">
         {/* Search Bar */}
-        <div className="relative mb-6 mx-[2%]">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+        <div className="relative  mb-6 lg:mx-[2%] lg:px-2 md:px-0">
+          <Search className="absolute  left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           <input
             type="text"
             placeholder="Search Oils..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full text-xl h-14 pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
         </div>
     
         {/* Header with Sort */}
-        <div className="flex justify-between items-center mb-6 mx-[2%]">
-          <h1 className="text-2xl font-semibold text-gray-800">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0 mb-6 lg:mx-[2%] lg:px-2 md:px-0">
+          <h1 className="lg:text-2xl text-lg  font-semibold text-gray-800">
             Discover All Premium Oils ({sortedOils.length})
           </h1>
-          <div className="relative">
+          <div className="relative lg:w-1/2  w-full flex flex-row-reverse">
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
+              className="appearance-none h-12 lg:h-[50px]  bg-white border text-[9.5px] lg:text-lg border-gray-300 rounded-lg px-4 py-2.5 pr-8 focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
             >
               {sortOptions.map((option) => (
                 <option key={option} value={option}>

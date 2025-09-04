@@ -80,13 +80,13 @@ export default function ProductOfDay() {
               
               
             <div className='flex flex-column w-full'>
-            <div className="absolute top-0 right-0 h-5 w-[90px] lg:w-44 bg-light-orange flex items-center gap-1 px-4 py- rounded-bl-full text-white text-[5.5px] lg:text-xs font-bold">
+            <div className="absolute top-0 right-0 h-3 lg:h-5 w-[70px]  lg:w-44 bg-light-orange flex items-center gap-1 lg:px-4 px-1 py-[2.8px] rounded-bl-full text-white text-[5.5px] lg:text-xs font-bold">
   Wood Pressed
   <span className="text-white text-7px lg:text-[10px] font-extralight leading-none">|</span>
 
-  <Link  className='flex justify-center items-center w-3 h-3'>
+  <span  className='flex justify-center items-center w-3 h-3'>
     <Heart size={14} className="text-white " />
-  </Link>
+  </span>
 </div>
 
              <div className='flex '>
