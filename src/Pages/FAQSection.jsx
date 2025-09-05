@@ -37,14 +37,20 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="py-16 px-4">
+    <div className="py-16 px-4" style={{
+      backgroundImage: 'url(/backgroundLines.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}
+    >
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-semibold text-light-orange mb-4">
+          <h2 className="lg:text-5xl text-lg font-semibold text-light-orange mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600 text-2xl">
+          <p className="text-gray-600 text-sm lg:text-2xl">
             Everything you need to know about our premium oils and services
           </p>
         </div>
@@ -60,7 +66,7 @@ const FAQSection = () => {
                 onClick={() => toggleQuestion(faq.id)}
                 className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-amber-25 transition-colors duration-200"
               >
-                <span className="text-gray-800 font-medium text-base pr-4">
+                <span className="text-gray-800 font-medium text-xs lg:text-base pr-4">
                   {faq.question}
                 </span>
                 <ChevronDown 
@@ -73,7 +79,7 @@ const FAQSection = () => {
               {openQuestion === faq.id && (
                 <div className="px-6 pb-5">
                   <div className="pt-2 border-t border-amber-100">
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-gray-600 text-[10px] lg:text-sm leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -84,7 +90,7 @@ const FAQSection = () => {
         </div>
 
         {/* View All FAQs Button */}
-        <div className="text-center">
+        <div className="text-center hidden lg:block">
           <button className="bg-white text-light-orange border-2 border-light-orange hover:text-white px-8 py-3 rounded-lg font-bold transition-all duration-200 shadow-sm hover:shadow-md">
             View All FAQs
           </button>

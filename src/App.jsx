@@ -29,7 +29,7 @@ function App() {
       <BlogSection/>
       <NutritionExpertsSection/>
       <FAQSection/>
-      {/* <FooterBanner/> */}
+      <FooterBanner/>
       <Footer/> 
 </>
   )

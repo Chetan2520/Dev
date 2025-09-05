@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
 
   return (
     <div 
-      className="max-w-6xl mx-auto p-6 my-16"
+      className="lg:px-48 lg:py-28 py-10 px-3"
       style={{
         backgroundImage: 'url(/backgroundLines.png)',
         backgroundSize: 'cover',

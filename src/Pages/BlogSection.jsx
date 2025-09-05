@@ -1,4 +1,4 @@
-import { ArrowBigRightIcon } from 'lucide-react';
+import { ArrowBigRightIcon, Calendar } from 'lucide-react';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
@@ -34,57 +34,58 @@ const BlogSection = () => {
   ];
 
   return (
-    <div className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div
+      className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 bg-no-repeat bg-cover bg-center"
+      style={{ backgroundImage: "url(/backgroundLines.png)" }}
+    >
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-semibold text-light-orange mb-4">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-lg lg:text-3xl sm:text-4xl font-semibold text-dark-orange mb-3 sm:mb-4">
             From Our Blog
           </h2>
-          <p className="text-gray-600 text-lg max-w-md mx-auto leading-relaxed">
+          <p className="text-gray-600 text-xs lg:text-base sm:text-lg max-w-xl mx-auto leading-relaxed px-2">
             Stay updated with the latest in health, nutrition, and traditional wellness practices.
           </p>
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
           {blogPosts.map((post) => (
             <div 
               key={post.id} 
-              className="bg-white rounded-xl shadow-md text-start overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-white border-2 border-[#FCE289] rounded-xl shadow-md text-start overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <img 
                 src={post.image} 
                 alt={post.title}
-                className="w-full h-[500px] object-cover"
+                className="w-[348px] h-[362px] lg:h-[500px] lg:w-[480px]"
               />
               
-              <div className="p-6">
+              <div className="p-4 sm:p-5 md:p-6">
                 {/* Meta Information */}
                 <div className="flex items-center gap-4 mb-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide text-light-orange bg-very-light-orange`}>
+                  <span className={`px-3 py-1 rounded-full text-xs lg:text-base font-bold uppercase tracking-wide text-light-orange bg-very-light-orange`}>
                     {post.category}
                   </span>
-                  <div className="flex items-center text-light-orange text-sm">
-                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                    </svg>
+                  <div className="flex items-center text-light-orange text-xs font-thin">
+                  <Calendar/>
                     {post.date}
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 leading-tight">
+                <h3 className="text-sm sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3 leading-tight">
                   {post.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                <p className="text-gray-600 text-xs sm:text-base leading-relaxed mb-4 sm:mb-5">
                   {post.excerpt}
                 </p>
 
                 {/* Read More Link */}
-                <button className="text-amber-600  font-medium text-sm hover:text-amber-700 transition-colors duration-200 gap-3 flex items-center group">
+                <button className="text-amber-600 font-medium text-xs  sm:text-base hover:text-amber-700 transition-colors duration-200 gap-2 sm:gap-3 flex items-center group">
                   Read More 
                   <FaArrowRight />
                 </button>
@@ -95,7 +96,7 @@ const BlogSection = () => {
 
         {/* View All Blogs Button */}
         <div className="text-center">
-          <button className="bg-light-orange text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 shadow-md hover:shadow-lg">
+          <button className="bg-dark-orange text-white  px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors duration-200 shadow-md hover:shadow-lg">
             View All Blogs
           </button>
         </div>

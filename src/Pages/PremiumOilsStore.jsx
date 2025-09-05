@@ -120,10 +120,10 @@ const MustardOilCard = ({ oils, renderStars }) => {
                   Add to Cart
                 </span>
                 
-                <Link className="w-full h-8 border-2 text-dark-orange border-dark-orange text-[10.52px] lg:text-xl   lg:py-3 lg:px-4 py-1 px-4  rounded-lg font-medium  flex items-center justify-center gap-2">
+                <span className="w-full h-8 border-2 text-dark-orange border-dark-orange text-[10.52px] lg:text-xl   lg:py-3 lg:px-4 py-1 px-4  rounded-lg font-medium  flex items-center justify-center gap-2">
                   <BiSolidZap size={18} />
                   Buy Now
-                </Link>
+                </span>
               </div>
             </div>
           </div>

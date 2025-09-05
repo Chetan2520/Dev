@@ -20,7 +20,7 @@ const Navbar = () => {
       {/* Top Bar - Contact & Promo - Hidden on Mobile */}
       <header className="hidden lg:flex bg-dark-orange flex-col lg:flex-row justify-between items-center text-white py-3 px-4 lg:px-8 text-sm">
         {/* Contact Info */}
-        <div className="items-center gap-2 mb-2 lg:mb-0 order-1 lg:order-1">
+        <div className="items-center gap-2 flex  mb-2 lg:mb-0 order-1 lg:order-1">
           <FaPhoneAlt className="text-very-light-orange" />
           <span className="whitespace-nowrap">+91 9876543210</span>
         </div>
